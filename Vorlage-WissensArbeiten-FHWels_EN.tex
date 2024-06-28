@@ -1,0 +1,169 @@
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%%            INFORMATION
+%%============================================================================
+%%            Release
+%%----------------------------------------------------------------------------
+\def\CurrentVersionMain{\textit{V2.0}}
+%%============================================================================
+%%            Category of the document and praembel
+%%----------------------------------------------------------------------------
+\documentclass[12pt,a4paper,oneside,bibliography=totocnumbered,toc=listofnumbered]{scrbook}
+\usepackage[ngerman,naustrian,english]{babel}
+\usepackage{./packages/WissensArbeitenFHWels}
+\usepackage{./packages/WissensArbeitenFHWels-FrontseitenEN}     
+
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%%
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%%            Specifications and settings of the academic thesis
+%%============================================================================
+%%            Specifications
+%%----------------------------------------------------------------------------
+%% Title of your academic work:
+\title{>>Software Development for Controlling Glare-Free Adaptive High Beam in Matrix LED Pixel Headlight<<}
+%%
+%% Author of the thesis:
+\author{>>T. Cagil Oral<<}
+%%
+%% Degree programme:
+\studiengang{>>Automotive Mechatronics and Management<<}
+%%
+%% Type of document:
+\typDokument{>>Master Thesis<<}
+% -) "Bachelor thesis"
+% -) "Master thesis"
+% -) "project report"
+%%
+%% Type of degree:
+\artStudiengang{>>Master's degree programme<<}
+% -) "Bachelor's degree programme"
+% -) "Master's degree programme"
+%%
+%% Title upon graduation:
+\akademGrad{>>Master of Science in Engineering (MSc)<<}
+% -) "Bachelor of Science in Engineering (BSc)"
+% -) "Master of Science in Engineering (MSc)"
+% -) "Diplom-Ingenieurin für technisch-wissenschaftliche Berufe (Dipl.-Ing.)"
+% -) "Diplom-Ingenieur für technisch-wissenschaftliche Berufe (Dipl.-Ing.)"
+%%
+%% City of residence:
+\studienort{>>Wels<<}
+%%
+%% Month and year of release
+\abgabemonat{>>September<<}
+\abgabejahr{>>2024<<}
+%%
+%% Supervisior:
+\betreuer{>>Prof. Gerald Steinmaurer \\ Dr.Harald Kirchsteiger<<}
+%%
+%% Keywords for the thesis:
+%% (for the metadatas of the PDF)
+\stichwoerter{A, Stichwort 2 Stichwort 3...}
+%%
+%% Show signature: (ATTENTION: The syntax is important!!!)
+\ShowSignature{0mm}{22mm}{0.5}{No}		% Shows the signature at the sworn decleration
+% Syntax: {x-Position}{y-Position}{Scale factor}{'Show:' Yes / No}
+% Example: \ShowSignature{0mm}{22mm}{0.5}{Yes}
+% A file with the name "Signature.png" must exist in the folder for the graphics
+%%
+%% Show colored links: (ATTENTION: The syntax is important!!!)
+\ColoredLinks{No}		% Colored links for figures, URLs and literature
+% Syntax: Yes / No
+%%
+%%============================================================================
+%%            Settings
+%%----------------------------------------------------------------------------
+\Style{FHWels}				% Defines the basic style (only 'FHWels possible)
+\BibStyle{FHWelsNumericBrackets}	% Citation style based on'BibLatex
+% Syntax:	-) FHWelsNumericBrackets (e.g. [1])
+%			-) FHWelsAlphabeticBrackets (e.g. [Meier, 2011])
+\addbibresource{Bibliography.bib}	% Bibliography file(s)
+
+
+\graphicspath{{./Grafik/}}	% Sets the folder for the graphics
+\TabContent{1.4cm}			% Tab stop for the list of content
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%%
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%%            BEGINNING OF THE THESIS
+%%============================================================================
+\begin{document}
+\selectlanguage{english}	% Sets the language	
+%%============================================================================
+%%            Frontpages & sworn decleration
+%%----------------------------------------------------------------------------
+%% Titelseite
+	\frontmatter				% roman page numbers				
+	\pagenumbering{Roman}		% capital roman numbers
+	\titelseite
+%%	
+%%============================================================================
+%%            Pre-chapters
+%%----------------------------------------------------------------------------
+%% Preface, Kurzfassung/Abstract, Contents
+	\begingroup
+		\pagestyle{plain}				%...no headline
+		\renewcommand{\chapterpagestyle}{plain}
+		\include{Text/0001-Preface}
+		\eidesErklaerung
+		\clearpage	
+	\endgroup
+	\begingroup
+		\pagestyle{plain}
+		\include{Text/0003-Abstract}
+		\include{Text/0002-Kurzfassung}
+		%
+		% Contents:
+		\tableofcontents
+		\clearpage
+	\endgroup
+%%
+%%============================================================================
+%%            Main chapters
+%%----------------------------------------------------------------------------
+	\mainmatter					% arabic page numbers
+%%----------------------------------------------------------------------------
+%% Introduction	
+	\input{Text/0101-Introduction}
+%%----------------------------------------------------------------------------
+%% Theoretical part
+	\input{Text/0201-MainChapter01}
+%%----------------------------------------------------------------------------
+%% Method and practical part
+	\input{Text/0301-MainChapter02}
+%%----------------------------------------------------------------------------
+%% Conclusion
+	\input{Text/0501-Conclusion}
+%%----------------------------------------------------------------------------
+%% List of abbrevations[optional]
+	\clearpage
+	%\input{Text/9001-Abbreviations}
+%%----------------------------------------------------------------------------
+%% Fachwortverzeichnis[optional]
+	\clearpage
+	%\input{Text/9002-Glossary}
+%%----------------------------------------------------------------------------
+%% Abbildungsverzeichnis
+	\clearpage
+	\input{Text/9003-Figures}
+%%----------------------------------------------------------------------------
+%% Tabellenverzeichnis
+	\clearpage
+	%\input{Text/9004-Tables}
+%%----------------------------------------------------------------------------
+%% Formelverzeichnis
+	\clearpage
+	%\input{Text/9005-Equations}
+%%----------------------------------------------------------------------------
+%% Bibliography
+	\clearpage
+	\input{Text/9006-Bibliography}
+%%----------------------------------------------------------------------------
+%% Appendix[optional]
+	%\input{Text/9010-Appendix}
+%%----------------------------------------------------------------------------
+%% Checkbox of the printed size
+	%\input{Text/9999-MeasurementBox}
+%%============================================================================	
+\end{document}
+%%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
